@@ -20,9 +20,11 @@ function createCopyButton() {
   const copyBtn = document.createElement("button");
   copyBtn.innerText = "Copy";
 
-  const typicalBtnClassName = "Button--secondary Button--small Button ml-5";
+  const typicalBtnClassName =
+    "Button--secondary Button--small Button ml-5 mb-2";
 
   copyBtn.className = typicalBtnClassName;
+  copyBtn.style.verticalAlign = "middle";
 
   return copyBtn;
 }
@@ -40,11 +42,6 @@ function attachCopyURLFunction(el, { title, url }) {
   });
 }
 
-function attachStylesForTitleEl(el) {
-  el.style.display = "flex";
-  el.style.alignItems = "center";
-}
-
 function main() {
   const metaInfo = getMetaInfo();
   if (!metaInfo) return;
@@ -55,8 +52,6 @@ function main() {
   const copyBtn = createCopyButton();
 
   attachCopyURLFunction(copyBtn, metaInfo);
-
-  attachStylesForTitleEl(titleEl);
 
   titleEl.appendChild(copyBtn);
 }
